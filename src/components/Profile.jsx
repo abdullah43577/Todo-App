@@ -1,6 +1,3 @@
-// Todo: Add necessary icon(s) to this page
-// Todo: onClick of the icon added, it should render the Todo page. (resetting the translatesX and Y's)
-
 export default function Profile(props) {
   return (
     <section className="profile--container bg-blue relative flex h-full min-h-screen w-full max-w-[50%] flex-col items-start justify-start gap-[1.5rem] py-[64px] px-[32px]">

@@ -1,5 +1,3 @@
-// Todo: onClick of the addtodoBtn (if there's a value in all the inputs) render the todo item and close down the addtodo page
-
 export default function AddTodo(props) {
   return (
     <form className={`hideTodoPage fixed top-0 left-0 flex h-screen w-full ${props.state && 'showTodoPage'} items-center justify-center bg-[#f3f3f3]`} onSubmit={props.handleFormSubmit}>

@@ -47,7 +47,10 @@ export default function TodoPG(props) {
         </section>
       </header>
 
-      <Todo todoItems={props.todoItems} handleDelete={props.handleDelete} />
+      <Todo
+        todoItems={props.todoItems}
+        handleDelete={props.handleDelete}
+      />
       <AddTodoBtn handleClick={props.handleClick} />
     </section>
   );

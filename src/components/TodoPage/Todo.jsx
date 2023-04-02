@@ -16,11 +16,25 @@ export default function Todo(props) {
     }
 
     return (
-      <li key={todo.id} id={todo.id} className="new relative rounded-2xl">
-        <label htmlFor={`todo--${i}`} className="flex w-full cursor-pointer items-center justify-start rounded-2xl bg-white p-5">
-          <input id={`todo--${i}`} type="checkbox" className={`mr-4 ${borderColor}`} />
+      <li
+        key={todo.id}
+        id={todo.id}
+        className="new relative rounded-2xl"
+      >
+        <label
+          htmlFor={`todo--${i}`}
+          className="flex w-full cursor-pointer items-center justify-start rounded-2xl bg-white p-5"
+        >
+          <input
+            id={`todo--${i}`}
+            type="checkbox"
+            className={`mr-4 ${borderColor}`}
+          />
           <p className="text-base text-gray">{todo.todo}</p>
-          <i className={`fa-solid fa-trash absolute right-3 text-[${trashIconColor}]`} onClick={(e) => props.handleDelete(e, todo.id)}></i>
+          <i
+            className={`fa-solid fa-trash absolute right-3 text-[${trashIconColor}]`}
+            onClick={(e) => props.handleDelete(e, todo.id)}
+          ></i>
         </label>
       </li>
     );

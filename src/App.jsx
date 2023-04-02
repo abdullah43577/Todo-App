@@ -34,22 +34,13 @@ export default function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    // get items from localStorage
-    try {
-      const existingTodos = JSON.parse(localStorage.getItem('todos'));
-      setTodos(existingTodos || []);
-    } catch (err) {
-      console.error(err);
-    }
+    const existingTodos = JSON.parse(localStorage.getItem('todos'));
+    setTodos(existingTodos || []);
   }, []);
 
   // run code when todos is updated or deleted
   useEffect(() => {
-    try {
-      localStorage.setItem('todos', JSON.stringify(todos));
-    } catch (err) {
-      console.error(err);
-    }
+    localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
   const handleSubmit = function (e) {
@@ -58,11 +49,9 @@ export default function App() {
     const formDataValues = Object.values(formData);
 
     // making sure all input elements where filled
-    const inputStateValidity = formDataValues.every((data) => data != '');
+    const inputStateValidity = formDataValues.every((data) => data !== '');
 
     if (!inputStateValidity) return;
-
-    renderTodoPage();
 
     const newTodo = {
       id: nanoid(),
@@ -70,6 +59,7 @@ export default function App() {
     };
 
     addTodo(newTodo);
+    renderTodoPage();
   };
 
   const addTodo = function (value) {
@@ -88,23 +78,22 @@ export default function App() {
       <Profile handleNav={toggleNavBar} />
 
       <main className={`absolute top-0 left-0 min-h-screen w-full ${profileVisible && 'translateMainDown'} bg-[#f3f3f3]`}>
-        {/* prettier-ignore */}
-        <TodoPG 
-        handleNav={toggleNavBar} 
-        handleClick={renderTodoPage} 
-        todoItems={todos}
-        handleDelete={handleDelete} 
+        <TodoPG
+          handleNav={toggleNavBar}
+          handleClick={renderTodoPage}
+          todoItems={todos}
+          handleDelete={handleDelete}
         />
 
-        {/* prettier-ignore */}
-        <AddTodo 
-        state={toggleTodoPage} 
-        handleClick={renderTodoPage} 
-        handleFormInputs={handleChange} 
-        valueTxT={formData.todo} 
-        valueDate={formData.date} 
-        valueSelect={formData.category} 
-        handleFormSubmit={handleSubmit} />
+        <AddTodo
+          state={toggleTodoPage}
+          handleClick={renderTodoPage}
+          handleFormInputs={handleChange}
+          valueTxT={formData.todo}
+          valueDate={formData.date}
+          valueSelect={formData.category}
+          handleFormSubmit={handleSubmit}
+        />
       </main>
     </>
   );
