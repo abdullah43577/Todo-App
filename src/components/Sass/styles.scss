@@ -28,10 +28,14 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  // overflow: hidden;
 
   > div {
     box-shadow: 3px 3px 3px 5px rgba(0, 0, 0, 0.2);
     transition: scale 0.5s ease-out;
+    // overflow-y: scroll;
+    // padding-right: 17px;
+    // box-sizing: content-box;
 
     &:hover {
       scale: 1.05;
@@ -42,6 +46,10 @@ body {
       transform-origin: top;
       transition: transform 1s ease-in-out;
     }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -124,6 +132,14 @@ label {
 
 .translateMainDown {
   transform: translate(60%, 80px);
+}
+
+.translateMainUP {
+  transform: translate(0%, 0px);
+}
+
+main {
+  transition: transform 1000ms ease-in-out;
 }
 
 .hideTodoPage {

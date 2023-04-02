@@ -31,12 +31,7 @@ export default function App() {
     }));
   };
 
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
-    if (existingTodos.length > 0) setTodos(existingTodos);
-  }, []);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || []);
 
   // run code when todos is updated or deleted
   useEffect(() => {
@@ -77,12 +72,13 @@ export default function App() {
     <>
       <Profile handleNav={toggleNavBar} />
 
-      <main className={`absolute top-0 left-0 min-h-screen w-full ${profileVisible && 'translateMainDown'} bg-[#f3f3f3]`}>
+      <main className={`absolute top-0 left-0 min-h-screen w-full ${profileVisible ? 'translateMainDown' : 'translateMainUp'} bg-[#f3f3f3]`}>
         <TodoPG
           handleNav={toggleNavBar}
           handleClick={renderTodoPage}
           todoItems={todos}
           handleDelete={handleDelete}
+          todo={todos}
         />
 
         <AddTodo
