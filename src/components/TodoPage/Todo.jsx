@@ -1,4 +1,14 @@
 export default function Todo(props) {
+  const handleLabel = function (e) {
+    e.preventDefault();
+    let clickedEl = e.target.closest('label');
+
+    if (!clickedEl) return;
+
+    const sibling = clickedEl.firstElementChild;
+    sibling.checked = !sibling.checked;
+  };
+
   const todoItems = props.todoItems.map((todo, i) => {
     let borderColor = todo.category.toLowerCase();
 
@@ -24,6 +34,7 @@ export default function Todo(props) {
         <label
           htmlFor={`todo--${i}`}
           className="flex w-full cursor-pointer items-center justify-start rounded-2xl bg-white p-5"
+          onClick={handleLabel}
         >
           <input
             id={`todo--${i}`}

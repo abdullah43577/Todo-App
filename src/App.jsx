@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import TodoPG from './components/TodoPage/TodoPG';
 import Profile from './components/Profile';
@@ -34,8 +34,8 @@ export default function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const existingTodos = JSON.parse(localStorage.getItem('todos'));
-    setTodos(existingTodos || []);
+    const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    if (existingTodos.length > 0) setTodos(existingTodos);
   }, []);
 
   // run code when todos is updated or deleted
@@ -70,7 +70,7 @@ export default function App() {
   const handleDelete = function (e, id) {
     e.stopPropagation();
     const newArray = todos.filter((obj) => obj.id !== id);
-    setTodos(newArray);
+    setTodos([...newArray]);
   };
 
   return (
