@@ -65,7 +65,7 @@ export default function App() {
   const handleDelete = function (e, id) {
     e.stopPropagation();
     const newArray = todos.filter((obj) => obj.id !== id);
-    setTodos([...newArray]);
+    setTodos(newArray);
   };
 
   return (
