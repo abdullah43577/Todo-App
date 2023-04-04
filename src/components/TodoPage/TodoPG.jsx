@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react';
 import Todo from './Todo';
 import AddTodoBtn from './AddTodoBtn';
-import { useState, useEffect } from 'react';
 
 export default function TodoPG(props) {
   const [counter, setCounter] = useState({

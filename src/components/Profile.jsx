@@ -1,6 +1,6 @@
 export default function Profile(props) {
   return (
-    <section className="profile--container bg-blue relative flex h-full min-h-screen w-full max-w-[50%] flex-col items-start justify-start gap-[1.5rem] py-[64px] px-[32px]">
+    <section className="profile--container bg-blue relative flex h-full min-h-screen w-full max-w-[60%] flex-col items-start justify-start gap-[1.5rem] py-[64px] px-[32px]">
       <figure className="h-[80px] w-[80px] rounded-full border-2 border-gray p-2">
         <img
           src=""

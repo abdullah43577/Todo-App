@@ -43,7 +43,7 @@ export default function App() {
 
     const formDataValues = Object.values(formData);
 
-    // making sure all input elements where filled
+    // making sure all input elements were filled
     const inputStateValidity = formDataValues.every((data) => data !== '');
 
     if (!inputStateValidity) return;
