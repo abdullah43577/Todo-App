@@ -45,7 +45,7 @@ export default function TodoPG(props) {
           </div>
         </nav>
 
-        <h2 className="text-3xl font-bold text-black md:text-6xl">What's up Joy!</h2>
+        <h2 className="text-3xl font-bold text-black md:text-6xl">What's up User!</h2>
         <p className="my-[32px] text-base font-medium uppercase text-gray">Categories</p>
 
         <section className="todo-categories--section">
