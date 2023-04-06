@@ -9,22 +9,30 @@ export default function TodoPG(props) {
     shopping: 0,
   });
 
+  const [width, setWidth] = useState({
+    business: 0,
+    personal: 0,
+    shopping: 0,
+  });
+
   useEffect(() => {
     const businessTasks = props.todo.filter((todo) => todo.category === 'Business');
-
-    setCounter((prevState) => ({ ...prevState, business: businessTasks.length }));
-  }, [props.todo]);
-
-  useEffect(() => {
     const personalTasks = props.todo.filter((todo) => todo.category === 'Personal');
-
-    setCounter((prevState) => ({ ...prevState, personal: personalTasks.length }));
-  }, [props.todo]);
-
-  useEffect(() => {
     const shoppingTasks = props.todo.filter((todo) => todo.category === 'Shopping');
 
-    setCounter((prevState) => ({ ...prevState, shopping: shoppingTasks.length }));
+    setCounter({
+      business: businessTasks.length,
+      personal: personalTasks.length,
+      shopping: shoppingTasks.length,
+    });
+
+    const totalTasks = props.todo.length;
+
+    setWidth({
+      business: (businessTasks.length / totalTasks) * 100 || 0,
+      personal: (personalTasks.length / totalTasks) * 100 || 0,
+      shopping: (shoppingTasks.length / totalTasks) * 100 || 0,
+    });
   }, [props.todo]);
 
   return (
@@ -55,7 +63,7 @@ export default function TodoPG(props) {
             <div className="h-[4px] w-full rounded bg-[#d6d3d3]">
               <div
                 className="inner-div h-full rounded bg-purple"
-                style={{ width: `${(counter.business / props.todo.length) * 100}%` }}
+                style={{ width: `${width.business}%` }}
               ></div>
             </div>
           </div>
@@ -66,7 +74,7 @@ export default function TodoPG(props) {
             <div className="h-[4px] w-full rounded bg-[#d6d3d3]">
               <div
                 className="inner-div h-full rounded bg-softBlue"
-                style={{ width: `${(counter.personal / props.todo.length) * 100}%` }}
+                style={{ width: `${width.personal}%` }}
               ></div>
             </div>
           </div>
@@ -77,7 +85,7 @@ export default function TodoPG(props) {
             <div className="h-[4px] w-full rounded bg-[#d6d3d3]">
               <div
                 className="inner-div h-full w-[40%] rounded bg-green-500"
-                style={{ width: `${(counter.shopping / props.todo.length) * 100}%` }}
+                style={{ width: `${width.shopping}%` }}
               ></div>
             </div>
           </div>
