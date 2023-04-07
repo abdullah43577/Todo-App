@@ -2,7 +2,6 @@
 module.exports = {
   mode: 'jit',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  safelist: ['text-[#1ab61a]', 'text-[#c566f4]', 'text-[#3b5998]'],
   theme: {
     screens: {
       sm: '480px',
@@ -12,10 +11,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        softBlue: '#3b5998',
-        gray: '#696969',
-        purple: '#800080',
-        black: ' #2e2d2d',
+        white: '#fcfcfc',
+        text: '#93E2E4',
+        cta: '#007D83',
       },
     },
   },

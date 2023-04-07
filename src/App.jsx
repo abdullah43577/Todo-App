@@ -72,7 +72,8 @@ export default function App() {
     <>
       <Profile handleNav={toggleNavBar} />
 
-      <main className={`absolute top-0 left-0 min-h-screen w-full ${profileVisible ? 'translateMainDown' : 'translateMainUp'} bg-[#f3f3f3]`}>
+      <main className={`absolute top-0 left-0 min-h-screen w-full ${profileVisible ? 'translateMainDown' : 'translateMainUp'} bg-white`}>
+        {/* prettier-ignore */}
         <TodoPG
           handleNav={toggleNavBar}
           handleClick={renderTodoPage}
@@ -81,6 +82,7 @@ export default function App() {
           todo={todos}
         />
 
+        {/* prettier-ignore */}
         <AddTodo
           state={toggleTodoPage}
           handleClick={renderTodoPage}
